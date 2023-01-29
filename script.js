@@ -7,8 +7,6 @@ audio = new Audio("tunes/a.wav"); // by default, audio src is "a" tune
 const playTune = (key) =>{
     audio.src = `tunes/${key}.wav`;// passing audio src based on key pressed
     audio.play(); // playing audio
-    console.log(allKeys);
-
     const clickedKey = document.querySelector(`[data-key="${key}"]`)//Getting clicked key element
     clickedKey.classList.add("active");
     setTimeout(() => { //removing active class after 150ms from the clicked key element 
@@ -20,7 +18,6 @@ pianoKeys.forEach(key =>{
     allKeys.push(key.dataset.key);//adding data-key value to the allKeys array
     //calling playtune function with passing data-key as an argument
     key.addEventListener("click", () => playTune(key.dataset.key));
-    console.log(key.dataset.key);
 });
 
 const handleVolume = (e) => {
